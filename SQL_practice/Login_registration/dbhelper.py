@@ -4,9 +4,9 @@ class DBhelper:
     def __init__(self):
         try:
             self.conn = mysql.connector.connect(host="localhost", username="root", password="",
-                                                database="hit-db-demo")
+                                                database="hit-db-demo")  # Python code Connect with Database, Enter marle kono output asbe na which means Connection Stablished hoiche jodi error ase tahole Connect hoy nai Database er sathe.
 
-            self.mycursor = self.conn.cursor()        # cursor is an object which is interact with database.
+            self.mycursor = self.conn.cursor()        # cursor is an object which is interact with database. (Creat Cursor Object)
                                                       # eta diye data base er sathe kotha bola jay.
         except:
             print("Some error occured.Could not connect to database")
@@ -18,7 +18,7 @@ class DBhelper:
             self.mycursor.execute("""        
             INSERT INTO `users_info` (`id`, `name`, `email`, `password`) VALUES (NULL, '{}','{}','{}');
             """.format(name,email,password))
-            self.conn.commit()
+            self.conn.commit()     # data base e change korar jonno conn.commit korte hoy.
         except:
             return -1    # something wrong
         else:
